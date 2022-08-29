@@ -9,6 +9,8 @@ int main(){
 	int opcao1,opcao2;
 	int contX =0,contO =0;
 	int linha1,coluna1;
+	int linha2,coluna2;
+
 	int linhapc,colunapc;
 	int opc;
 	int turno;
@@ -178,8 +180,8 @@ int main(){
 		
 		
 	 	case 2:
-	 		while(1){
-		char k;
+	 	while(1){
+		
 		continuar = 's';
 		 printf("/******************************************************|\n");
 	     printf("/       Grupo:Luan Victor; Murilo Henrique;            |\n");
@@ -188,14 +190,13 @@ int main(){
 	     printf("/                   Jogo da velha                      |\n");
 		 printf("/                                                      |\n");
 	     printf("/                                                      |\n");
-	     printf("/       Esse modo o jogador1 ficar como o x            |\n");
-	     printf("/                   por tanto jogador2 fica com o o    |\n");
+	     printf("/       Esse modo o jogador1 ficar como o X            |\n");
+	     printf("/                   por tanto jogador2 fica com o O    |\n");
 	     printf("/******************************************************/\n");
-	     printf("digite qualquer coisa:)");
-		scanf("%s",&k);
+	     Sleep(2000);
+	
 		opcao1 = 'x';
 		opcao2 = 'o';
-		
 
 		while(1){ 
 			/*quem ganha e quantas vezes ganharam*/
@@ -269,7 +270,6 @@ int main(){
 		                break;
 		            }
 		        }
-		        printf("%d|| %d \n\n", contX,contO);
 				
 				system("cls");
 				printf("\n\n\t %c | %c | %c  \n",lista[0][0],lista[0][1],lista[0][2]);
@@ -278,8 +278,8 @@ int main(){
 				printf("\t------------\n");
 				printf("\t %c | %c | %c\n\n\n",lista[2][0],lista[2][1],lista[2][2]);
 				
-				if (turno % 2 == 0){
-					printf("jogador 1 sua vez \n\n\n");
+				if ((turno % 2) == 0){
+					printf("O Jogador 1 sua vez \n\n\n");
 				
 					printf("Qual a linha que voce quer[1-3]? ");
 					scanf("%d",&linha1);
@@ -287,40 +287,56 @@ int main(){
 					printf("Qual coluna voce quer[1-3]? ");
 					scanf("%d",&coluna1);
 				
-				if (lista[linha1-1][coluna1-1] == ' '){
-					lista[linha1-1][coluna1-1] = opcao1;
-					turno++;
-				}else if((1>=linha1>=3) &&(1>=coluna1>=3)){
-					continue;
-				}else{
-					printf("o valor digitado e invalido, digite valores menores que 3 e maiores que 1");
-					system("cls");
-					
-				}
+					if ((1<=linha1<=3) &&(1<=coluna1<=3)){
+						if (lista[linha1-1][coluna1-1] == ' '){
+							lista[linha1-1][coluna1-1] = opcao1;
+							turno++;
+						}else {
+								system("cls");
+								printf("Essa casa ja foi ocupada");
+								Sleep(4000);
+							
+							
+						}
+					}else{
+					 	    system("cls");
+							printf("O valor digitado e invalido, digite valores menores que 3 e maiores que 1");
+							Sleep(4000);	
+								
+						}
 			 }else{	
-			 	printf("jogador 2 sua vez \n\n\n");
+			 
+			 	printf("O Jogador 2 sua vez \n\n\n");
 				
 					printf("Qual a linha que voce quer[1-3]? ");
-					scanf("%d",&linha1);
+					scanf("%d",&linha2);
 					
 					printf("Qual coluna voce quer[1-3]? ");
-					scanf("%d",&coluna1);
-				
-				if (lista[linha1-1][coluna1-1] == ' '){
-					lista[linha1-1][coluna1-1] = opcao2;
-					turno++;
-				}else if((1>=linha1>=3) &&(1>=coluna1>=3)){
-					continue;
-				}else{
-					printf("o valor digitado e invalido, digite valores menores que 3 e maiores que 1");
-					system("cls");
+					scanf("%d",&coluna2);
 					
+					
+				if(((1<=linha2)&&(linha2<=3)) &&((1<=coluna2)&&(coluna2<=3))){
+					printf("%d %d",linha2,coluna2);
+					if (lista[linha2-1][coluna2-1] == ' '){
+						lista[linha2-1][coluna2-1] = opcao2;
+						turno++;
+						
+					}else{
+						system("cls");
+						printf("Essa casa ja foi ocupada");
+						Sleep(4000);
+					}
+			 	}else{
+			 		system("cls");
+						printf("O valor digitado e invalido, digite valores menores que 3 e maiores que 1");
+						Sleep(4000);
+						
+						
 				}
-			 	
 			 }
 				
 
-			}
+		}
 		
 		
 		return 0;	
