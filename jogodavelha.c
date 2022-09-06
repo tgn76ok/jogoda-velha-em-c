@@ -5,22 +5,22 @@
 
 int main(){
 	char continuar;
-	char opcao, opcaopc; 
+	char opcao, opcaopc;
 	int opcao1,opcao2;
 	int contX =0,contO =0;
-	int linha1,coluna1;
+	int linha1,coluna1,next = 0;
 	int linha2,coluna2;
-
-	int linhapc,colunapc;
+    int linhapc,colunapc;
 	int opc;
 	int turno;
 	char lista[3][3] = {
         {' ', ' ', ' '},
         {' ', ' ', ' '},
         {' ', ' ', ' '},};
-        
-        
-        printf("/******************************************************|\n");
+
+
+
+     printf("/******************************************************|\n");
      printf("/       Grupo:Luan Victor; Murilo Henrique;            |\n");
      printf("/               Thiago Germano; Gabriel Figueiredo     |\n");
      printf("/                                                      |\n");
@@ -32,320 +32,438 @@ int main(){
      printf("/******************************************************/\n");
 	 printf(">>>");
 	 scanf("%i",&opc);
-	 
+
 	 switch(opc)
 	 {
 	 	case 1:
-	 		while(1){
-		
-		continuar = 's';
-		
-		while(1){
-			printf("voce que ser X ou O?");
-			scanf("%s",&opcao);
-			if(opcao != 'x' && opcao !='o'){
-				printf("valor voce digitou uma letra que nao aceitamos");
-			}else{
-				break;
-			}
-		}
-		
-		if(opcao == 'x'){
-			opcaopc ='o';
-		}else{
-			opcaopc ='x';
-		}
+            while(1){
 
-		while(1){ 
-			/*quem ganha e quantas vezes ganharam*/
-		        if ((lista[0][0] == lista[0][1])&& (lista[0][0]== lista[0][2])&& (lista[0][0]== 'x')){
-						contX +=1;
-						printf("o X venceu");
-				
-				}else if ((lista[0][0] == lista[0][1])&& (lista[0][0]== lista[0][2])&& (lista[0][0]== 'o')){
-						printf("a letra o venceu");
-		                contO +=1;
-		            
-		        }else if ((lista[1][0] == lista[1][1]) && (lista[1][0]== lista[1][2]) && (lista[1][0] == 'x')){
-			        	printf("o X venceu");
-			            contX +=1;
-		            
-		        }else if ((lista[1][0] == lista[1][1]) && (lista[1][0]== lista[1][2]) && (lista[1][0] == 'o')){
-		                printf("a letra o venceu");
-		                contO++;
-		        	
-		        }else if ((lista[2][0] == lista[2][1]) && (lista[2][0] == lista[2][2]) && (lista[2][0]== 'x')){
-			        	printf("o X venceu");
-			            contX +=1;
-		        }else if((lista[2][0] == lista[2][1]) && (lista[2][0] == lista[2][2]) && (lista[2][0] == 'o')){
-		                printf("a letra o venceu");
-		                contO +=1;
-		            
-		    	}else if ((lista[0][0] == lista[1][0])&&(lista[0][0] == lista[2][0])&&(lista[0][0] == 'x')){
-		                printf("o X venceu");
-		                contX +=1;
-		        }else if ((lista[0][0] == lista[1][0])&&(lista[0][0] == lista[2][0])&&(lista[0][0] == 'o')){
-		                printf("a letra o venceu");
-		                contO +=1;
-		        }else if ((lista[0][1] == lista[1][1])&&(lista[0][1] == lista[2][1]) && (lista[0][1] == 'x')){
-		        	    printf("o X venceu");
-		                contX +=1;
-		        }else if ((lista[0][1] == lista[1][1])&&(lista[0][1] == lista[2][1]) && (lista[0][1] == 'o')){
-		                printf("a letra o venceu");
-		                contO +=1;
-		            
-		        }else if ((lista[0][2] == lista[1][2])&&(lista[0][2] == lista[2][2])&& (lista[0][2] == 'x')){
-						printf("o X venceu");
-			            contX +=1;
-				}else if ((lista[0][2] == lista[1][2])&&(lista[0][2] == lista[2][2])&& (lista[0][2] == 'o')){
-		                printf("a letra o venceu");
-		                contO +=1;
-		        }else if ((lista[0][0] == lista[1][1])&&(lista[0][0] == lista[2][2]) && (lista[0][0] == 'x')){
-		                printf("o X venceu");
-		                contX +=1;
-		        }else if ((lista[0][0] == lista[1][1])&&(lista[0][0] == lista[2][2]) && (lista[0][0] == 'o')){
-		                printf("a letra o venceu");
-		                contO +=1;
-		        }else if ((lista[2][0] == lista[1][1])&& (lista[2][0] == lista[0][2])&&(lista[2][0] == 'x')){
-		                printf("o X venceu");
-		                contX +=1;
-		        }else if ((lista[2][0] == lista[1][1])&& (lista[2][0] == lista[0][2])&&(lista[2][0] == 'x')){
-		                printf("a letra o venceu");
-		                contO +=1;
-		        }
-		        if (contX > 0 || contO >0){
-		            printf("\nQuer continuar?[s/n] ");
-		            scanf("%s",&continuar);
-		            char lista[3][3] = {
-        {' ', ' ', ' '},
-        {' ', ' ', ' '},
-        {' ', ' ', ' '},};
-		            if(continuar == 'n'){
-		                break;
-		            }
-		        }
-		        printf("%d|| %d \n\n", contX,contO);
-				
-				system("cls");
-				printf("\n\n\t %c | %c | %c  \n",lista[0][0],lista[0][1],lista[0][2]);
-				printf("\t------------\n");
-				printf("\t %c | %c | %c  \n",lista[1][0],lista[1][1],lista[1][2]);
-				printf("\t------------\n");
-				printf("\t %c | %c | %c\n\n\n",lista[2][0],lista[2][1],lista[2][2]);
-				
-				
-				
-				printf("Qual a linha que voce quer[1-3]? ");
-				scanf("%d",&linha1);
-				
-				printf("Qual coluna voce quer[1-3]? ");
-				scanf("%d",&coluna1);
-				
-				if (lista[linha1-1][coluna1-1] == ' '){
-					lista[linha1-1][coluna1-1] = opcao;
-				}else if((1>=linha1>=3) &&(1>=coluna1>=3)){
-					continue;
-				}else{
-					printf("o valor digitado e invalido, digite valores menores que 3 e maiores que 1");
-					system("cls");
-					
-				}
-			
-				linhapc =rand() %2;
-				colunapc =rand() %2;
-				
-				while(1){
-					if(lista[linhapc][colunapc]== ' '){
-						lista[linhapc][colunapc] = opcaopc;
-						break;
-					}else if((1>=linha1>=3) && (1>=coluna1>=3)){
-						continue;
-					}else{
-						linhapc =rand() %3;
-					    colunapc =rand() %3;
-					}
-				}
-			}
-		
-		
-		if(continuar == 'n'){
-			break;
-		}
-		
-		
-		return 0;	
-	}
-		break;
-		
-		
-		
+            continuar = 's';
+
+            while(1){
+                printf("voce que ser X ou O?");
+                scanf("%s",&opcao);
+                if(opcao != 'x' && opcao !='o'){
+                    printf("valor voce digitou uma letra que nao aceitamos");
+                }else{
+                    break;
+                }
+            }
+
+            if(opcao == 'x'){
+                opcaopc ='o';
+            }else{
+                opcaopc ='x';
+            }
+
+            while(1){
+                /*quem ganha e quantas vezes ganharam*/
+                    if ((lista[0][0] == lista[0][1])&& (lista[0][0]== lista[0][2])&& (lista[0][0]== 'x')){
+                            contX +=1;
+                            printf("\n/****************|\n");
+                            printf("/   O X venceu   |\n");
+                            printf("/****************|\n");
+                    }else if ((lista[0][0] == lista[0][1])&& (lista[0][0]== lista[0][2])&& (lista[0][0]== 'o')){
+                            printf("\n/*************************|\n");
+                            printf("/ A letra O foi o vencedor|\n");
+                            printf("/*************************|\n");
+                            contO +=1;
+
+                    }else if ((lista[1][0] == lista[1][1]) && (lista[1][0]== lista[1][2]) && (lista[1][0] == 'x')){
+                            printf("\n/****************|\n");
+                            printf("/   O X venceu   |\n");
+                            printf("/****************|\n");
+                            contX +=1;
+
+                    }else if ((lista[1][0] == lista[1][1]) && (lista[1][0]== lista[1][2]) && (lista[1][0] == 'o')){
+                            printf("\n/*************************|\n");
+                            printf("/ A letra O foi o vencedor|\n");
+                            printf("/*************************|\n");
+                            contO++;
+
+                    }else if ((lista[2][0] == lista[2][1]) && (lista[2][0] == lista[2][2]) && (lista[2][0]== 'x')){
+                            printf("\n/****************|\n");
+                            printf("/   O X venceu   |\n");
+                            printf("/****************|\n");
+                            contX +=1;
+                    }else if((lista[2][0] == lista[2][1]) && (lista[2][0] == lista[2][2]) && (lista[2][0] == 'o')){
+                            printf("\n/*************************|\n");
+                            printf("/ A letra O foi o vencedor|\n");
+                            printf("/*************************|\n");
+                            contO +=1;
+
+                    }else if ((lista[0][0] == lista[1][0])&&(lista[0][0] == lista[2][0])&&(lista[0][0] == 'x')){
+                            printf("\n/****************|\n");
+                            printf("/   O X venceu   |\n");
+                            printf("/****************|\n");
+                            contX +=1;
+                    }else if ((lista[0][0] == lista[1][0])&&(lista[0][0] == lista[2][0])&&(lista[0][0] == 'o')){
+                            printf("\n/*************************|\n");
+                            printf("/ A letra O foi o vencedor|\n");
+                            printf("/*************************|\n");
+                            contO +=1;
+                    }else if ((lista[0][1] == lista[1][1])&&(lista[0][1] == lista[2][1]) && (lista[0][1] == 'x')){
+                            printf("\n/****************|\n");
+                            printf("/   O X venceu   |\n");
+                            printf("/****************|\n");;
+                            contX +=1;
+                    }else if ((lista[0][1] == lista[1][1])&&(lista[0][1] == lista[2][1]) && (lista[0][1] == 'o')){
+                            printf("\n/*************************|\n");
+                            printf("/ A letra O foi o vencedor|\n");
+                            printf("/*************************|\n");
+                            contO +=1;
+
+                    }else if ((lista[0][2] == lista[1][2])&&(lista[0][2] == lista[2][2])&& (lista[0][2] == 'x')){
+                            printf("n/****************|\n");
+                            printf("/   O X venceu   |\n");
+                            printf("/****************|\n");
+                            contX +=1;
+                    }else if ((lista[0][2] == lista[1][2])&&(lista[0][2] == lista[2][2])&& (lista[0][2] == 'o')){
+                            printf("\n/*************************|\n");
+                            printf("/ A letra O foi o vencedor|\n");
+                            printf("/*************************|\n");
+                            contO +=1;
+                    }else if ((lista[0][0] == lista[1][1])&&(lista[0][0] == lista[2][2]) && (lista[0][0] == 'x')){
+                            printf("\n/****************|\n");
+                            printf("/   O X venceu   |\n");
+                            printf("/****************|\n");
+                            contX +=1;
+                    }else if ((lista[0][0] == lista[1][1])&&(lista[0][0] == lista[2][2]) && (lista[0][0] == 'o')){
+                            printf("\n/*************************|\n");
+                            printf("/ A letra O foi o vencedor|\n");
+                            printf("/*************************|\n");
+                            contO +=1;
+                    }else if ((lista[2][0] == lista[1][1])&& (lista[2][0] == lista[0][2])&&(lista[2][0] == 'x')){
+                            printf("\n/****************|\n");
+                            printf("/   O X venceu   |\n");
+                            printf("/****************|\n");
+                            contX +=1;
+                    }else if ((lista[2][0] == lista[1][1])&& (lista[2][0] == lista[0][2])&&(lista[2][0] == 'x')){
+                            printf("\n/*************************|\n");
+                            printf("/ A letra O foi o vencedor|\n");
+                            printf("/*************************|\n");
+                            contO +=1;
+                    }
+
+
+                    if (contX > next || contO >next){
+                        printf("\nQuer continuar?[s/n] ");
+                        scanf("%s",&continuar);
+                        int l,c;
+
+                        for(l=0; l<=3;l++){
+                            for(c=0; c<=3;c++){
+                                lista[l][c] = ' ';
+                            }
+                        }
+
+                        next+=1;
+                        if(continuar == 'n'){
+                            break;
+                        }
+                    }
+                    system("cls");
+                    printf("\nO Jogador X ganhou %d |||O jogador O ganhou %d\n\n ",contX,contO);
+
+                    printf("\n\n\t\t %c | %c | %c  \n",lista[0][0],lista[0][1],lista[0][2]);
+                    printf("\t\t------------\n");
+                    printf("\t\t %c | %c | %c  \n",lista[1][0],lista[1][1],lista[1][2]);
+                    printf("\t\t------------\n");
+                    printf("\t\t %c | %c | %c\n\n\n",lista[2][0],lista[2][1],lista[2][2]);
+
+
+                    if (turno%2 ==0){
+                        printf("\tQual a linha que voce quer[1-3]? ");
+                        scanf("%d",&linha1);
+
+                        printf("\tQual coluna voce quer[1-3]? ");
+                        scanf("%d",&coluna1);
+
+
+
+                        if((1<=linha1<=3) &&(1<=coluna1<=3)){
+                            if (lista[linha1-1][coluna1-1] == ' '){
+                                lista[linha1-1][coluna1-1] = opcao;
+                                turno+=1;
+                            }else{
+                                system("cls");
+                                     printf("/******************************************************|\n");
+                                     printf("/                                                      |\n");
+                                     printf("/             Essa casa ja foi ocupada                 |\n");
+                                     printf("/                                                      |\n");
+                                     printf("/******************************************************/\n");
+                                sleep(10);
+                            }
+
+                        }else{
+                           system("cls");
+                             printf("/******************************************************|\n");
+                             printf("/                                                      |\n");
+                             printf("/             O valor digitado e invalido              |\n");
+                             printf("/     Digite valores menores que 3 e maiores que 1     |\n");
+                             printf("/                                                      |\n");
+                             printf("/******************************************************/\n");
+                            sleep(10);
+                        }
+
+
+
+                    }else{
+
+                        linhapc =rand() %2;
+                        colunapc =rand() %2;
+
+                        while(1){
+                            if((1<=linha1<=3) && (1<=coluna1<=3)){
+
+                                if(lista[linhapc][colunapc]== ' '){
+                                    lista[linhapc][colunapc] = opcaopc;
+                                    turno+=1;
+                                    break;
+
+                                }else{
+                                    linhapc =rand() %3;
+                                    colunapc =rand() %3;
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+            if(continuar == 'n'){
+                break;
+            }
+
+            }
+            
+            break;
+/**********************************************************************************************************/
 	 	case 2:
-	 	while(1){
-		
-		continuar = 's';
-		 printf("/******************************************************|\n");
-	     printf("/       Grupo:Luan Victor; Murilo Henrique;            |\n");
-	     printf("/               Thiago Germano; Gabriel Figueiredo     |\n");
-	     printf("/                                                      |\n");
-	     printf("/                   Jogo da velha                      |\n");
-		 printf("/                                                      |\n");
-	     printf("/                                                      |\n");
-	     printf("/       Esse modo o jogador1 ficar como o X            |\n");
-	     printf("/                   por tanto jogador2 fica com o O    |\n");
-	     printf("/******************************************************/\n");
-	     Sleep(2000);
-	
-		opcao1 = 'x';
-		opcao2 = 'o';
+            while(1){
 
-		while(1){ 
-			/*quem ganha e quantas vezes ganharam*/
-		        if ((lista[0][0] == lista[0][1])&& (lista[0][0]== lista[0][2])&& (lista[0][0]== 'x')){
-						contX +=1;
-						printf("o jogador 1 venceu");
-						char lista[3][3] = {
-        {' ', ' ', ' '},
-        {' ', ' ', ' '},
-        {' ', ' ', ' '},};
-				
-				}else if ((lista[0][0] == lista[0][1])&& (lista[0][0]== lista[0][2])&& (lista[0][0]== 'o')){
-						printf("o jogador 2 venceu");
-		                contO +=1;
-		            
-		        }else if ((lista[1][0] == lista[1][1]) && (lista[1][0]== lista[1][2]) && (lista[1][0] == 'x')){
-			        	printf("o jogador 1 venceu");
-			            contX +=1;
-		            
-		        }else if ((lista[1][0] == lista[1][1]) && (lista[1][0]== lista[1][2]) && (lista[1][0] == 'o')){
-						printf("o jogador 2 venceu");
-		                contO++;
-		        	
-		        }else if ((lista[2][0] == lista[2][1]) && (lista[2][0] == lista[2][2]) && (lista[2][0]== 'x')){
-			        	printf("o jogador 1 venceu");
-			            contX +=1;
-		        }else if((lista[2][0] == lista[2][1]) && (lista[2][0] == lista[2][2]) && (lista[2][0] == 'o')){
-						printf("o jogador 2 venceu");
-		                contO +=1;
-		            
-		    	}else if ((lista[0][0] == lista[1][0])&&(lista[0][0] == lista[2][0])&&(lista[0][0] == 'x')){
-		                printf("o jogador 1 venceu");
-		                contX +=1;
-		        }else if ((lista[0][0] == lista[1][0])&&(lista[0][0] == lista[2][0])&&(lista[0][0] == 'o')){
-						printf("o jogador 2 venceu");
-		                contO +=1;
-		        }else if ((lista[0][1] == lista[1][1])&&(lista[0][1] == lista[2][1]) && (lista[0][1] == 'x')){
-		        	    printf("o jogador 1 venceu");
-		                contX +=1;
-		        }else if ((lista[0][1] == lista[1][1])&&(lista[0][1] == lista[2][1]) && (lista[0][1] == 'o')){
-						printf("o jogador 2 venceu");
-		                contO +=1;
-		            
-		        }else if ((lista[0][2] == lista[1][2])&&(lista[0][2] == lista[2][2])&& (lista[0][2] == 'x')){
-						printf("o jogador 1 venceu");
-			            contX +=1;
-				}else if ((lista[0][2] == lista[1][2])&&(lista[0][2] == lista[2][2])&& (lista[0][2] == 'o')){
-						printf("o jogador 2 venceu");
-		                contO +=1;
-		        }else if ((lista[0][0] == lista[1][1])&&(lista[0][0] == lista[2][2]) && (lista[0][0] == 'x')){
-		                printf("o jogador 1 venceu");
-		                contX +=1;
-		        }else if ((lista[0][0] == lista[1][1])&&(lista[0][0] == lista[2][2]) && (lista[0][0] == 'o')){
-						printf("o jogador 2 venceu");
-		                contO +=1;
-		        }else if ((lista[2][0] == lista[1][1])&& (lista[2][0] == lista[0][2])&&(lista[2][0] == 'x')){
-		                printf("o jogador 1 venceu");
-		                contX +=1;
-		        }else if ((lista[2][0] == lista[1][1])&& (lista[2][0] == lista[0][2])&&(lista[2][0] == 'x')){
-						printf("o jogador 2 venceu");
-		                contO +=1;
-		        }
-		        if (contX > 0 || contO >0){
-		            printf("\nQuer continuar?[s/n] ");
-		            scanf("%s",&continuar);
-		            char lista[3][3] = {
-        {' ', ' ', ' '},
-        {' ', ' ', ' '},
-        {' ', ' ', ' '},};
-		            if(continuar == 'n'){
-		                break;
-		            }
-		        }
-				
-				system("cls");
-				printf("\n\n\t %c | %c | %c  \n",lista[0][0],lista[0][1],lista[0][2]);
-				printf("\t------------\n");
-				printf("\t %c | %c | %c  \n",lista[1][0],lista[1][1],lista[1][2]);
-				printf("\t------------\n");
-				printf("\t %c | %c | %c\n\n\n",lista[2][0],lista[2][1],lista[2][2]);
-				
-				if ((turno % 2) == 0){
-					printf("O Jogador 1 sua vez \n\n\n");
-				
-					printf("Qual a linha que voce quer[1-3]? ");
-					scanf("%d",&linha1);
-					
-					printf("Qual coluna voce quer[1-3]? ");
-					scanf("%d",&coluna1);
-				
-					if ((1<=linha1<=3) &&(1<=coluna1<=3)){
-						if (lista[linha1-1][coluna1-1] == ' '){
-							lista[linha1-1][coluna1-1] = opcao1;
-							turno++;
-						}else {
-								system("cls");
-								printf("Essa casa ja foi ocupada");
-								Sleep(4000);
-							
-							
-						}
-					}else{
-					 	    system("cls");
-							printf("O valor digitado e invalido, digite valores menores que 3 e maiores que 1");
-							Sleep(4000);	
-								
-						}
-			 }else{	
-			 
-			 	printf("O Jogador 2 sua vez \n\n\n");
-				
-					printf("Qual a linha que voce quer[1-3]? ");
-					scanf("%d",&linha2);
-					
-					printf("Qual coluna voce quer[1-3]? ");
-					scanf("%d",&coluna2);
-					
-					
-				if(((1<=linha2)&&(linha2<=3)) &&((1<=coluna2)&&(coluna2<=3))){
-					printf("%d %d",linha2,coluna2);
-					if (lista[linha2-1][coluna2-1] == ' '){
-						lista[linha2-1][coluna2-1] = opcao2;
-						turno++;
-						
-					}else{
-						system("cls");
-						printf("Essa casa ja foi ocupada");
-						Sleep(4000);
-					}
-			 	}else{
-			 		system("cls");
-						printf("O valor digitado e invalido, digite valores menores que 3 e maiores que 1");
-						Sleep(4000);
-						
-						
-				}
-			 }
-				
+                continuar = 's';
+                 printf("/******************************************************|\n");
+                 printf("/       Grupo:Luan Victor; Murilo Henrique;            |\n");
+                 printf("/               Thiago Germano; Gabriel Figueiredo     |\n");
+                 printf("/                                                      |\n");
+                 printf("/                   Jogo da velha                      |\n");
+                 printf("/                                                      |\n");
+                 printf("/                                                      |\n");
+                 printf("/       Esse modo o jogador1 ficar como o X            |\n");
+                 printf("/                   por tanto jogador2 fica com o O    |\n");
+                 printf("/******************************************************/\n");
+                 getchar();
 
-		}
-		
-		
-		return 0;	
-	}
-		
+                opcao1 = 'x';
+                opcao2 = 'o';
+
+                while(1){
+                    /*quem ganha e quantas vezes ganharam*/
+                        if ((lista[0][0] == lista[0][1])&& (lista[0][0]== lista[0][2])&& (lista[0][0]== 'x')){
+                                contX +=1;
+                                printf("/*************************|\n");
+                                printf("/    O jogador 1 venceu   |\n");
+                                printf("/*************************|\n");
+
+
+
+                        }else if ((lista[0][0] == lista[0][1])&& (lista[0][0]== lista[0][2])&& (lista[0][0]== 'o')){
+                                printf("/*************************|\n");
+                                printf("/    O jogador 2 venceu   |\n");
+                                printf("/*************************|\n");
+                                contO +=1;
+
+                        }else if ((lista[1][0] == lista[1][1]) && (lista[1][0]== lista[1][2]) && (lista[1][0] == 'x')){
+                                printf("/*************************|\n");
+                                printf("/    O jogador 1 venceu   |\n");
+                                printf("/*************************|\n");
+                                contX +=1;
+
+                        }else if ((lista[1][0] == lista[1][1]) && (lista[1][0]== lista[1][2]) && (lista[1][0] == 'o')){
+                                printf("/*************************|\n");
+                                printf("/    o jogador 2 venceu   |\n");
+                                printf("/*************************|\n");
+                                contO++;
+
+                        }else if ((lista[2][0] == lista[2][1]) && (lista[2][0] == lista[2][2]) && (lista[2][0]== 'x')){
+                                printf("/*************************|\n");
+                                printf("/    O jogador 1 venceu   |\n");
+                                printf("/*************************|\n");
+                                contX +=1;
+                        }else if((lista[2][0] == lista[2][1]) && (lista[2][0] == lista[2][2]) && (lista[2][0] == 'o')){
+                                printf("/*************************|\n");
+                                printf("/    o jogador 2 venceu   |\n");
+                                printf("/*************************|\n");
+                                contO +=1;
+
+                        }else if ((lista[0][0] == lista[1][0])&&(lista[0][0] == lista[2][0])&&(lista[0][0] == 'x')){
+                                printf("/*************************|\n");
+                                printf("/    O jogador 1 venceu   |\n");
+                                printf("/*************************|\n");
+                                contX +=1;
+                        }else if ((lista[0][0] == lista[1][0])&&(lista[0][0] == lista[2][0])&&(lista[0][0] == 'o')){
+                                printf("/*************************|\n");
+                                printf("/    o jogador 2 venceu   |\n");
+                                printf("/*************************|\n");
+                                contO +=1;
+                        }else if ((lista[0][1] == lista[1][1])&&(lista[0][1] == lista[2][1]) && (lista[0][1] == 'x')){
+                                printf("/*************************|\n");
+                                printf("/    O jogador 1 venceu   |\n");
+                                printf("/*************************|\n");
+                                contX +=1;
+                        }else if ((lista[0][1] == lista[1][1])&&(lista[0][1] == lista[2][1]) && (lista[0][1] == 'o')){
+                                printf("/*************************|\n");
+                                printf("/    o jogador 2 venceu   |\n");
+                                printf("/*************************|\n");
+                                contO +=1;
+
+                        }else if ((lista[0][2] == lista[1][2])&&(lista[0][2] == lista[2][2])&& (lista[0][2] == 'x')){
+                                printf("/*************************|\n");
+                                printf("/    O jogador 1 venceu   |\n");
+                                printf("/*************************|\n");
+                                contX +=1;
+                        }else if ((lista[0][2] == lista[1][2])&&(lista[0][2] == lista[2][2])&& (lista[0][2] == 'o')){
+                                printf("/*************************|\n");
+                                printf("/    o jogador 2 venceu   |\n");
+                                printf("/*************************|\n");
+                                contO +=1;
+                        }else if ((lista[0][0] == lista[1][1])&&(lista[0][0] == lista[2][2]) && (lista[0][0] == 'x')){
+                                printf("/*************************|\n");
+                                printf("/    O jogador 1 venceu   |\n");
+                                printf("/*************************|\n");
+                                contX +=1;
+                        }else if ((lista[0][0] == lista[1][1])&&(lista[0][0] == lista[2][2]) && (lista[0][0] == 'o')){
+                                printf("/*************************|\n");
+                                printf("/    o jogador 2 venceu   |\n");
+                                printf("/*************************|\n");
+                                contO +=1;
+                        }else if ((lista[2][0] == lista[1][1])&& (lista[2][0] == lista[0][2])&&(lista[2][0] == 'x')){
+                                printf("/*************************|\n");
+                                printf("/    O jogador 1 venceu   |\n");
+                                printf("/*************************|\n");
+                                contX +=1;
+                        }else if ((lista[2][0] == lista[1][1])&& (lista[2][0] == lista[0][2])&&(lista[2][0] == 'x')){
+                                printf("/*************************|\n");
+                                printf("/    o jogador 2 venceu   |\n");
+                                printf("/*************************|\n");
+                                contO +=1;
+
+                        }
+                        if (contX > next || contO > next){
+                            printf("\nQuer continuar?[s/n] ");
+                            scanf("%s",&continuar);
+
+                            int l,c;
+
+                            for(l=0; l<=3;l++){
+                                for(c=0; c<=3;c++){
+                                    lista[l][c] = ' ';
+                                }
+                            }
+
+
+                            next+=1;
+                            if(continuar == 'n'){
+                                break;
+                            }
+                        }
+
+                        system("cls");
+                        printf("\n\n\t %c | %c | %c  \n",lista[0][0],lista[0][1],lista[0][2]);
+                        printf("\t------------\n");
+                        printf("\t %c | %c | %c  \n",lista[1][0],lista[1][1],lista[1][2]);
+                        printf("\t------------\n");
+                        printf("\t %c | %c | %c\n\n\n",lista[2][0],lista[2][1],lista[2][2]);
+
+                        if ((turno % 2) == 0){
+                            printf("O Jogador 1 sua vez \n\n\n");
+
+                            printf("Qual a linha que voce quer[1-3]? ");
+                            scanf("%d",&linha1);
+
+                            printf("Qual coluna voce quer[1-3]? ");
+                            scanf("%d",&coluna1);
+
+                            if ((1<=linha1<=3) &&(1<=coluna1<=3)){
+                                if (lista[linha1-1][coluna1-1] == ' ' ){
+                                    lista[linha1-1][coluna1-1] = 'x';
+                                    turno++;
+                                }else {
+                                        system("cls");
+                                         printf("/******************************************************|\n");
+                                         printf("/                                                      |\n");
+                                         printf("/             Essa casa ja foi ocupada                 |\n");
+                                         printf("/                                                      |\n");
+                                         printf("/******************************************************/\n");
+                                         sleep(10);
+
+
+
+                                }
+                            }else{
+                                    system("cls");
+                                         printf("/******************************************************|\n");
+                                         printf("/                                                      |\n");
+                                         printf("/             O valor digitado e invalido              |\n");
+                                         printf("/     Digite valores menores que 3 e maiores que 1     |\n");
+                                         printf("/                                                      |\n");
+                                         printf("/******************************************************/\n");
+                                   sleep(10);
+                                }
+                             }else{
+
+                                printf("O Jogador 2 sua vez \n\n\n");
+
+                                    printf("Qual a linha que voce quer[1-3]? ");
+                                    scanf("%d",&linha2);
+
+                                    printf("Qual coluna voce quer[1-3]? ");
+                                    scanf("%d",&coluna2);
+
+
+                                if(((1<=linha2)&&(linha2<=3)) &&((1<=coluna2)&&(coluna2<=3))){
+
+                                    if (lista[linha2-1][coluna2-1] == ' '){
+                                        lista[linha2-1][coluna2-1] = 'o';
+                                        turno++;
+
+                                    }else{
+                                        system("cls");
+                                        printf("/******************************************************|\n");
+                                        printf("/                                                      |\n");
+                                        printf("/             Essa casa ja foi ocupada                 |\n");
+                                        printf("/                                                      |\n");
+                                        printf("/******************************************************/\n");
+                                        sleep(10);
+
+                                        }
+                                }else{
+                                    system("cls");
+                                         printf("/******************************************************|\n");
+                                         printf("/                                                      |\n");
+                                         printf("/             O valor digitado e invalido              |\n");
+                                         printf("/     Digite valores menores que 3 e maiores que 1     |\n");
+                                         printf("/                                                      |\n");
+                                         printf("/******************************************************/\n");
+                                        sleep(10);
+
+
+                                }
+                             }
+
+
+                        }
+
+
+                return 0;
+                }
+                break;
+
 	 	default:
-        printf ("Valor invalido!\n");	 		
-	 }        
-        
-        
-        
+        printf ("Valor invalido!\n");
+	 }
+
+
+
 }
